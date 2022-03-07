@@ -1,0 +1,23 @@
+{
+  "name": "mailmunch-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahamazari/mailmunch-cypress.git"
+  },
+  "author": "tahamazari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tahamazari/mailmunch-cypress/issues"
+  },
+  "homepage": "https://github.com/tahamazari/mailmunch-cypress#readme",
+  "devDependencies": {
+    "cypress": "^9.4.1"
+  }
+}
