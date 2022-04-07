@@ -1,0 +1,563 @@
+{
+  "data": {
+    "site": {
+      "id": 109,
+      "broadcastLimitExceeded": false,
+      "shopify": null,
+      "wordpress": null,
+      "wix": false,
+      "domain": "with-business-profile.com",
+      "name": "Shared Site With Business Profile",
+      "ecommerceCoupons": [],
+      "entitlements": {
+          "branding_removal": true,
+          "email_branding_removal": false,
+          "basic_analytics": true,
+          "advanced_analytics": true,
+          "premium_themes": true,
+          "saved_email_templates": true,
+          "premium_email_templates": true,
+          "content_gate": true,
+          "faster_notifications": true,
+          "custom_css": true,
+          "tracking_pixels": true,
+          "global_tracking_pixels": true,
+          "whitelabel": true,
+          "ab_testing": true,
+          "team_management": true,
+          "team_users": 99999,
+          "broadcasts": true,
+          "autoresponders": true,
+          "drip_campaigns": true,
+          "max_autoresponders_allowed": 99999,
+          "pages_custom_domain": true,
+          "max_landing_pages_allowed": 500,
+          "max_forms_allowed": 600,
+          "floating_button": true,
+          "unlayer_lead_download_tool": true,
+          "unlayer_email_download_tool": true,
+          "unlayer_spinwheel_tool": true,
+          "unlayer_lead_coupon_tool": true,
+          "unlayer_email_coupon_tool": true,
+          "unlayer_lead_timer_tool": true,
+          "unlayer_email_timer_tool": true,
+          "unlayer_html_tool": true,
+          "unlayer_lead_store_product_tool": true,
+          "unlayer_email_store_product_tool": true,
+          "custom_fonts": true,
+          "seo_tags": true,
+          "utm_parameters": true,
+          "automation": false,
+          "shopify_product_pages": false,
+          "shopify_home_pages": false,
+          "shopify_collection_pages": false,
+          "shopify_password_pages": false,
+          "lead_quality": false,
+          "geo_location_targeting": false,
+          "inbox_preview": false,
+          "pricingPlan": "Agency",
+          "vanillaId": "agency",
+          "billingGatewayName": "braintree",
+          "maxAllowedSites": 99999,
+          "trial": false,
+          "trialDays": 14,
+          "trialExpiresAt": "2022-04-20T22:34:25.214-07:00",
+          "siteOwnerCreatedAt": "2022-04-06T22:34:25.214-07:00"
+      },
+      "currency": "$",
+      "campaignsCount": {
+          "landingPages": 0,
+          "totalWidgets": 0,
+          "totalActiveWidgets": 0,
+          "autoresponders": 0,
+          "broadcasts": 0,
+          "dripCampaigns": 0,
+          "journiesCount": 0
+      },
+      "userId": 39,
+      "siteOwnerTrialEligible": true,
+      "user": {
+          "id": 39,
+          "name": null,
+          "email": "admin@mailmunch.com",
+          "displayEmail": "admin@mailmunch.com",
+          "referral": null,
+          "channelName": null,
+          "timeZone": null,
+          "createdAt": "2022-04-07T05:34:25.214Z",
+          "data": {
+              "redesign_v2": {
+                  "v2": true,
+                  "force": true,
+                  "allow_optin": true
+              },
+              "notifications": {},
+              "pricing_version": "v1"
+          },
+          "subscribersCount": 0,
+          "pricingVersionUrl": "http://localhost:5006/v1/pricing.v1.js",
+          "siteCount": 2,
+          "intercomUserHash": "534e0b877ba36d8dafcaba74f86cac7a184c705143c164837f115574225f74d3",
+          "partner": {
+              "id": 22,
+              "name": "MailMunch",
+              "platformFeatures": {
+                  "gdpr": {
+                      "enabled": true,
+                      "features": {
+                          "add_new_consent_field": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "drips": {
+                      "enabled": true,
+                      "features": {
+                          "unlayer_timer_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_download_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_email_store_product_tool": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "sites": {
+                      "enabled": true,
+                      "features": {
+                          "add_new": {
+                              "enabled": true
+                          },
+                          "overage": {
+                              "enabled": true
+                          },
+                          "dashboard": {
+                              "enabled": true
+                          },
+                          "switchable": {
+                              "enabled": true
+                          },
+                          "notifications": {
+                              "enabled": true
+                          },
+                          "general_settings": {
+                              "enabled": true
+                          },
+                          "settings_page_v2": {
+                              "enabled": true
+                          },
+                          "onboarding_wizard": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "users": {
+                      "enabled": true,
+                      "features": {
+                          "sign_in": {
+                              "enabled": true
+                          },
+                          "sign_up": {
+                              "enabled": true
+                          },
+                          "google_oauth": {
+                              "enabled": true
+                          },
+                          "forgot_password": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "agency": {
+                      "enabled": true,
+                      "features": {
+                          "branding": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "account": {
+                      "enabled": true,
+                      "features": {
+                          "billing": {
+                              "enabled": true
+                          },
+                          "api_keys": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "coupons": {
+                      "enabled": true
+                  },
+                  "widgets": {
+                      "enabled": true,
+                      "features": {
+                          "ab_testing": {
+                              "enabled": true
+                          },
+                          "builder_v2": {
+                              "enabled": true
+                          },
+                          "categories": {
+                              "enabled": true
+                          },
+                          "unlayer_timer_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_download_tool": {
+                              "enabled": true
+                          },
+                          "builder_premium_badges": {
+                              "enabled": true
+                          },
+                          "unlayer_spinwheel_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_lead_store_product_tool": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "analytics": {
+                      "enabled": true,
+                      "features": {}
+                  },
+                  "campaigns": {
+                      "enabled": true,
+                      "features": {}
+                  },
+                  "changelog": {
+                      "enabled": true,
+                      "features": {}
+                  },
+                  "broadcasts": {
+                      "enabled": true,
+                      "features": {
+                          "unlayer_timer_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_download_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_email_store_product_tool": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "subscribers": {
+                      "enabled": true,
+                      "features": {
+                          "tags": {
+                              "enabled": true
+                          },
+                          "lists": {
+                              "enabled": true
+                          },
+                          "custom_fields": {
+                              "enabled": true
+                          },
+                          "add_new_manually": {
+                              "enabled": true
+                          },
+                          "add_new_custom_field": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "custom_fonts": {
+                      "enabled": true
+                  },
+                  "integrations": {
+                      "enabled": true,
+                      "features": {
+                          "jilt": {
+                              "enabled": true
+                          },
+                          "sendy": {
+                              "enabled": true
+                          },
+                          "aweber": {
+                              "enabled": true
+                          },
+                          "zapier": {
+                              "enabled": true
+                          },
+                          "klaviyo": {
+                              "enabled": true
+                          },
+                          "aweberv2": {
+                              "enabled": true
+                          },
+                          "httppost": {
+                              "enabled": true
+                          },
+                          "intercom": {
+                              "enabled": true
+                          },
+                          "sendlane": {
+                              "enabled": true
+                          },
+                          "mailchimp": {
+                              "enabled": true
+                          },
+                          "convertkit": {
+                              "enabled": true
+                          },
+                          "mailerlite": {
+                              "enabled": true
+                          },
+                          "salesforce": {
+                              "enabled": true
+                          },
+                          "getresponse": {
+                              "enabled": true
+                          },
+                          "infusionsoft": {
+                              "enabled": true
+                          },
+                          "activecampaign": {
+                              "enabled": true
+                          },
+                          "campaignmonitor": {
+                              "enabled": true
+                          },
+                          "constantcontact": {
+                              "enabled": true
+                          },
+                          "constantcontactv3": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "landing_pages": {
+                      "enabled": true,
+                      "features": {
+                          "domains": {
+                              "enabled": true
+                          },
+                          "ab_testing": {
+                              "enabled": true
+                          },
+                          "unlayer_timer_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_download_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_lead_store_product_tool": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "shopify_pages": {
+                      "enabled": true,
+                      "features": {
+                          "home_pages": {
+                              "enabled": true
+                          },
+                          "product_pages": {
+                              "enabled": true
+                          },
+                          "password_pages": {
+                              "enabled": true
+                          },
+                          "collection_pages": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "autoresponders": {
+                      "enabled": true,
+                      "features": {
+                          "unlayer_timer_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_download_tool": {
+                              "enabled": true
+                          },
+                          "unlayer_email_store_product_tool": {
+                              "enabled": true
+                          }
+                      }
+                  },
+                  "team_management": {
+                      "enabled": true
+                  },
+                  "customer_support": {
+                      "enabled": true,
+                      "features": {
+                          "buttons": {
+                              "enabled": true
+                          }
+                      }
+                  }
+              },
+              "unlayerToolUrls": {
+                  "unlayer_form_tool": "http://localhost:5003/form_tool.js",
+                  "unlayer_shopify_product_tool": "http://localhost:5029/shopify_product_tool.js",
+                  "unlayer_coupon_tool": "http://localhost:5024/coupon_tool.js",
+                  "unlayer_spinwheel_tool": "http://localhost:5022/spinwheel_tool.js",
+                  "unlayer_download_tool": "http://localhost:5021/download_tool.js",
+                  "media_library": "http://localhost:5008/v1/media_library.js"
+              },
+              "domains": {
+                  "pages_domain": "local.page.co:4002",
+                  "aws_bucket": "mailmunch-dev",
+                  "aws_access_key_id": "AKIAVEIPZ54B67XJKGME"
+              },
+              "pagesCnameDomain": null,
+              "partnerLinks": {},
+              "__typename": "Partner"
+          },
+          "isShopify": null,
+          "isWordpress": null,
+          "isMailchimp": null,
+          "emailDisabled": false,
+          "broadcastDisabled": false,
+          "trialExpiresAt": "2022-04-21T05:34:25.214Z",
+          "__typename": "User"
+      },
+      "lists": [
+          {
+              "id": 156,
+              "name": "General",
+              "doubleOptin": false,
+              "doubleOptinMessage": null,
+              "locale": "en",
+              "contactsCount": 0,
+              "createdAt": "2022-04-07T05:34:41.139Z",
+              "__typename": "List"
+          }
+      ],
+      "tags": [],
+      "segments": [],
+      "fonts": [],
+      "data": {},
+      "customFields": [
+          {
+              "id": 981,
+              "label": "Submit",
+              "showLabel": false,
+              "placeholderText": "Subscribe",
+              "type": "CustomField::Submit",
+              "slug": "submit",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 980,
+              "label": "Email",
+              "showLabel": false,
+              "placeholderText": "Enter your email",
+              "type": "CustomField::EmailField",
+              "slug": "email",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 979,
+              "label": "Zip Code",
+              "showLabel": false,
+              "placeholderText": "Enter zip code",
+              "type": "CustomField::ZipCodeField",
+              "slug": "zip_code",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 978,
+              "label": "Company",
+              "showLabel": false,
+              "placeholderText": "Enter company",
+              "type": "CustomField::CompanyField",
+              "slug": "company",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 977,
+              "label": "Website",
+              "showLabel": false,
+              "placeholderText": "Enter website",
+              "type": "CustomField::WebsiteField",
+              "slug": "website",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 976,
+              "label": "Phone Number",
+              "showLabel": false,
+              "placeholderText": "Enter phone number",
+              "type": "CustomField::PhoneNumberField",
+              "slug": "phone_number",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 975,
+              "label": "Last Name",
+              "showLabel": false,
+              "placeholderText": "Enter last name",
+              "type": "CustomField::LastNameField",
+              "slug": "last_name",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 974,
+              "label": "First Name",
+              "showLabel": false,
+              "placeholderText": "Enter first name",
+              "type": "CustomField::FirstNameField",
+              "slug": "first_name",
+              "__typename": "CustomField"
+          },
+          {
+              "id": 973,
+              "label": "Name",
+              "showLabel": false,
+              "placeholderText": "Enter name",
+              "type": "CustomField::NameField",
+              "slug": "name",
+              "__typename": "CustomField"
+          }
+      ],
+      "lastPingedAt": null,
+      "integrations": [],
+      "siteOwnerTeamManagementEligible": true,
+      "membershipsCount": 3,
+      "businessProfile": {
+          "id": 109,
+          "companyName": "Shared Site With Business Profile",
+          "businessEmail": "admin@mailmunch.com",
+          "address1": null,
+          "address2": null,
+          "contactNumber": null,
+          "contactName": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null,
+          "logo": null,
+          "favicon": null,
+          "styles": {},
+          "socialMedia": [],
+          "signUpReason": null,
+          "goals": [],
+          "industry": null,
+          "language": "en",
+          "revenue": null,
+          "steps": {
+              "info": true,
+              "logo": true,
+              "social": true,
+              "survey": true,
+              "address": true,
+              "mailchimp": true
+          },
+          "isCompleted": true,
+          "meta": {},
+          "isMailchimpIntegrated": false,
+          "__typename": "BusinessProfile"
+      },
+      "__typename": "Site"
+    }
+  }
+}

@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', () => {
+  cy.fixture('users').then(users => {
+    const { admin: { email, password } } = users
+    cy.session([email, password], () => {
+      cy.visit('/login')
+      cy.get('input[type=email]:visible').type(email)
+      cy.get('input[type=password]:visible').type(password)
+      cy.intercept(`${Cypress.env('railsUrl')}/api/v1/auth/sign_in`).as('successLogin')
+      cy.contains('Sign In').click()
+      cy.wait('@successLogin').its('response.body.token').should('exist')
+    })
+  })
+})
