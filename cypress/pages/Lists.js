@@ -1,4 +1,4 @@
-import { generateRandomName, generateRandomNumber, requestWithStubbedResponse } from "../utils/helpers"
+import { generateRandomName, generateRandomNumber, interceptGqlRequest } from "../utils/helpers"
 
 class ListsPage {
   constructor(){
@@ -16,27 +16,28 @@ class ListsPage {
 
   runTests(){
     this.verifyAtleastOneListExists()
-    // this.verifyPreventDeletingOnlyExistingList()
-    // this.verifySuccessfulCreateList()
-    // this.verifySuccessfulDeleteList()
-    // this.verifySuccessfulDoubleOptInUpdate()
-    // this.verifySuccessfulUpdateList()
+    this.verifyPreventDeletingOnlyExistingList()
+    this.verifySuccessfulCreateList()
+    this.verifySuccessfulDoubleOptInUpdate()
+    this.verifySuccessfulUpdateList()
+    this.verifySuccessfulDeleteList()
   }
 
+
   verifyAtleastOneListExists(){
-    requestWithStubbedResponse({ fixture: "Site/site", alias: "getSite", opName: "Site" })
+    interceptGqlRequest({ alias: "getSite", opName: "Site" })
     cy.wait('@getSite')
     .its("response.body.data.site.lists").its("length").should("be.gt", 0)
   }
 
   verifyPreventDeletingOnlyExistingList(){
     cy.get('[data-attribute="icon-list-delete-0"]').click()
-    cy.contains("You must have at least 1 list in your account").should("exist")
+    cy.get("[data-attribute='button-delete-list']").should('have.class', 'pointer-events-none')
     cy.contains("Discard").click()
   }
 
   verifySuccessfulCreateList(){
-    requestWithStubbedResponse({ fixture: 'List/createList', alias: 'createList' })
+    interceptGqlRequest({ fixture: 'List/createList', alias: 'createList' })
 
     cy.get('[data-attribute="button-create-new-list"]').click()
     cy.get('[data-attribute="input-list-name"]').type(generateRandomName())
@@ -47,7 +48,7 @@ class ListsPage {
   }
 
   verifySuccessfulDeleteList(){
-    requestWithStubbedResponse({ fixture: 'List/deleteListAndAssignNewList', alias: 'deleteListAndAssignNewList' })
+    interceptGqlRequest({ fixture: 'List/deleteListAndAssignNewList', alias: 'deleteListAndAssignNewList' })
 
     cy.get('[data-attribute="icon-list-delete-1"]').click()
     cy.get('[data-attribute="choose-new-list"]').click()
@@ -61,7 +62,7 @@ class ListsPage {
   }
 
   verifySuccessfulDoubleOptInUpdate(){
-    requestWithStubbedResponse({ fixture: 'List/updateList', alias: 'updateList' })
+    interceptGqlRequest({ fixture: 'List/updateList', alias: 'updateList' })
 
     cy.get("[data-attribute=toggle-list-opt-in-0]").click()
     
@@ -70,7 +71,7 @@ class ListsPage {
   }
 
   verifySuccessfulUpdateList(){
-    requestWithStubbedResponse({ fixture: 'List/updateList', alias: 'updateList' })
+    interceptGqlRequest({ fixture: 'List/updateList', alias: 'updateList' })
 
     cy.get('[data-attribute="icon-list-update-0"]').click()
 
@@ -87,6 +88,9 @@ class ListsPage {
     cy.get("body").then($body => {
       if($body.find(".ql-container").length){
         cy.get(".ql-container").type(generateRandomName())
+        cy.get("[data-attribute='button-upsert-list']").click()
+        cy.wait("@updateList")
+        .its("response.body.data.updateList.success").should("eq", true)
       }
       else{
         cy.get("[data-attribute='button-upsert-list']").click()
@@ -94,11 +98,6 @@ class ListsPage {
         .its("response.body.data.updateList.success").should("eq", true)
       }
     })
-
-    cy.get("[data-attribute='button-upsert-list']").click()
-
-    cy.wait("@updateList")
-    .its("response.body.data.updateList.success").should("eq", true)
   }
 }
 

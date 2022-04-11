@@ -40,16 +40,11 @@ export const generateRandomNumber = ({ ceiling }) => {
   return (Math.floor((Math.random() * ceiling)))
 }
 
-export const requestWithStubbedResponse = ({ fixture, alias, method = "POST", url = "http://localhost:4000/", opName = null }) => {
+export const interceptGqlRequest = ({ alias, method = "POST", url = "http://localhost:4000/", opName = null }) => {
   const operationName = opName ? opName : alias
-  cy.fixture(`${fixture}.json`).then((json) => {
-    cy.intercept(method, url, (req) => {
-      if (req.body.operationName === operationName){
-        req.alias = alias
-        req.reply({
-          body: json
-        })
-      }
-    })
+  cy.intercept(method, url, (req) => {
+    if (req.body.operationName === operationName){
+      req.alias = alias
+    }
   })
 }
