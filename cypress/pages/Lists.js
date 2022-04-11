@@ -15,12 +15,14 @@ class ListsPage {
   }
 
   runTests(){
-    this.verifyAtleastOneListExists()
-    this.verifyPreventDeletingOnlyExistingList()
-    this.verifySuccessfulCreateList()
-    this.verifySuccessfulDoubleOptInUpdate()
-    this.verifySuccessfulUpdateList()
-    this.verifySuccessfulDeleteList()
+    // this.verifyAtleastOneListExists()
+    // this.verifyPreventDeletingOnlyExistingList()
+    // this.verifyPreventEmptyListCreation()
+    this.verifyPreventEmptyListNameOnUpdate()
+    // this.verifySuccessfulCreateList()
+    // this.verifySuccessfulDoubleOptInUpdate()
+    // this.verifySuccessfulUpdateList()
+    // this.verifySuccessfulDeleteList()
   }
 
 
@@ -34,6 +36,19 @@ class ListsPage {
     cy.get('[data-attribute="icon-list-delete-0"]').click()
     cy.get("[data-attribute='button-delete-list']").should('have.class', 'pointer-events-none')
     cy.contains("Discard").click()
+  }
+
+  verifyPreventEmptyListCreation(){
+    cy.get('[data-attribute="button-create-new-list"]').click()
+    cy.get('[data-attribute="button-upsert-list"]').click()
+    cy.get("[data-attribute='tooltip-upsert-list-name']").should("exist")
+  }
+
+  verifyPreventEmptyListNameOnUpdate(){
+    cy.get('[data-attribute="icon-list-update-0"]').click()
+    cy.get('[data-attribute="input-list-name"]').clear()
+    cy.get('[data-attribute="button-upsert-list"]').click()
+    cy.get("[data-attribute='tooltip-upsert-list-name']").should("exist")
   }
 
   verifySuccessfulCreateList(){
