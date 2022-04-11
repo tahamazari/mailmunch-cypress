@@ -6,7 +6,7 @@ context('Cypress Mailmunch - Lists Page Tests', () => {
   });
 
   it('Lists', () => {
-    cy.visit('/users/sign_in')
+    cy.visit('/sites')
     const listsPageTestCases = new ListsPage()
 
     cy.fixture('users').then(users => {

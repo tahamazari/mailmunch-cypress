@@ -15,14 +15,14 @@ class ListsPage {
   }
 
   runTests(){
-    // this.verifyAtleastOneListExists()
-    // this.verifyPreventDeletingOnlyExistingList()
-    // this.verifyPreventEmptyListCreation()
+    this.verifyAtleastOneListExists()
+    this.verifyPreventDeletingOnlyExistingList()
+    this.verifyPreventEmptyListCreation()
     this.verifyPreventEmptyListNameOnUpdate()
-    // this.verifySuccessfulCreateList()
-    // this.verifySuccessfulDoubleOptInUpdate()
-    // this.verifySuccessfulUpdateList()
-    // this.verifySuccessfulDeleteList()
+    this.verifySuccessfulCreateList()
+    this.verifySuccessfulDoubleOptInUpdate()
+    this.verifySuccessfulUpdateList()
+    this.verifySuccessfulDeleteList()
   }
 
 
@@ -34,50 +34,52 @@ class ListsPage {
 
   verifyPreventDeletingOnlyExistingList(){
     cy.get('[data-attribute="icon-list-delete-0"]').click()
-    cy.get("[data-attribute='button-delete-list']").should('have.class', 'pointer-events-none')
+    cy.get("[data-attribute='button-list-delete']").should('have.class', 'pointer-events-none')
     cy.contains("Discard").click()
   }
 
   verifyPreventEmptyListCreation(){
-    cy.get('[data-attribute="button-create-new-list"]').click()
-    cy.get('[data-attribute="button-upsert-list"]').click()
-    cy.get("[data-attribute='tooltip-upsert-list-name']").should("exist")
+    cy.get('[data-attribute="button-list-create-new"]').click()
+    cy.get('[data-attribute="button-list-upsert"]').click()
+    cy.get("[data-attribute='tooltip-list-upsert-name']").should("exist")
+    cy.get('[data-attribute=modal-close-list-upsert]').click()
   }
 
   verifyPreventEmptyListNameOnUpdate(){
-    cy.get('[data-attribute="icon-list-update-0"]').click()
-    cy.get('[data-attribute="input-list-name"]').clear()
-    cy.get('[data-attribute="button-upsert-list"]').click()
-    cy.get("[data-attribute='tooltip-upsert-list-name']").should("exist")
+    cy.get('[data-attribute="icon-list-upsert-0"]').click()
+    cy.get('[data-attribute="input-list-upsert-name"]').clear()
+    cy.get('[data-attribute="button-list-upsert"]').click()
+    cy.get("[data-attribute='tooltip-list-upsert-name']").should("exist")
+    cy.get('[data-attribute=modal-close-list-upsert]').click()
   }
 
   verifySuccessfulCreateList(){
-    interceptGqlRequest({ fixture: 'List/createList', alias: 'createList' })
+    interceptGqlRequest({ alias: 'createList' })
 
-    cy.get('[data-attribute="button-create-new-list"]').click()
-    cy.get('[data-attribute="input-list-name"]').type(generateRandomName())
-    cy.get('[data-attribute="button-upsert-list"]').click()
+    cy.get('[data-attribute="button-list-create-new"]').click()
+    cy.get('[data-attribute="input-list-upsert-name"]').type(generateRandomName())
+    cy.get('[data-attribute="button-list-upsert"]').click()
 
     cy.wait('@createList')
     .its("response.body.data.createList.success").should("eq", true) 
   }
 
   verifySuccessfulDeleteList(){
-    interceptGqlRequest({ fixture: 'List/deleteListAndAssignNewList', alias: 'deleteListAndAssignNewList' })
+    interceptGqlRequest({ alias: 'deleteListAndAssignNewList' })
 
     cy.get('[data-attribute="icon-list-delete-1"]').click()
-    cy.get('[data-attribute="choose-new-list"]').click()
-    cy.get('[data-attribute="choose-new-list"]').within(() => {
+    cy.get('[data-attribute="select-list-choose-new"]').click()
+    cy.get('[data-attribute="select-list-choose-new"]').within(() => {
       cy.get('[class$=-MenuList]').children().eq(0).click()
     })
-    cy.get("[data-attribute='button-delete-list']").click()
+    cy.get("[data-attribute='button-list-delete']").click()
 
     cy.wait('@deleteListAndAssignNewList')
     .its("response.body.data.deleteListAndAssignNewList.success").should("eq", true)
   }
 
   verifySuccessfulDoubleOptInUpdate(){
-    interceptGqlRequest({ fixture: 'List/updateList', alias: 'updateList' })
+    interceptGqlRequest({ alias: 'updateList' })
 
     cy.get("[data-attribute=toggle-list-opt-in-0]").click()
     
@@ -86,15 +88,15 @@ class ListsPage {
   }
 
   verifySuccessfulUpdateList(){
-    interceptGqlRequest({ fixture: 'List/updateList', alias: 'updateList' })
+    interceptGqlRequest({ alias: 'updateList' })
 
-    cy.get('[data-attribute="icon-list-update-0"]').click()
+    cy.get('[data-attribute="icon-list-upsert-0"]').click()
 
-    cy.get('[data-attribute="input-list-name"]').type("-updated")
+    cy.get('[data-attribute="input-list-upsert-name"]').type("-updated")
     
-    cy.get("[data-attribute='list-update-set-locale']").click()
+    cy.get("[data-attribute='select-list-upsert-set-locale']").click()
 
-    cy.get('[data-attribute="list-update-set-locale"]').within(() => {
+    cy.get('[data-attribute="select-list-upsert-set-locale"]').within(() => {
       cy.get('[class$=-MenuList]').children().eq(generateRandomNumber({ ceiling: 15 })).click()
     })
 
@@ -103,12 +105,12 @@ class ListsPage {
     cy.get("body").then($body => {
       if($body.find(".ql-container").length){
         cy.get(".ql-container").type(generateRandomName())
-        cy.get("[data-attribute='button-upsert-list']").click()
+        cy.get("[data-attribute='button-list-upsert']").click()
         cy.wait("@updateList")
         .its("response.body.data.updateList.success").should("eq", true)
       }
       else{
-        cy.get("[data-attribute='button-upsert-list']").click()
+        cy.get("[data-attribute='button-list-upsert']").click()
         cy.wait("@updateList")
         .its("response.body.data.updateList.success").should("eq", true)
       }
