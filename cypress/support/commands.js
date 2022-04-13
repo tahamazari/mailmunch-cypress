@@ -24,11 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-// import process from "process"
-import path from 'path'
-import { exec } from "child_process"
-
-
 Cypress.Commands.add('login', () => {
   cy.fixture('users').then(users => {
     const { admin: { email, password } } = users

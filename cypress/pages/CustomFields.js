@@ -2,7 +2,7 @@ import { generateRandomNumber, interceptGqlRequest } from "../utils/helpers"
 
 class CustomFields {
   constructor(){
-    cy.intercept('POST', 'http://localhost:4000/', (req) => {
+    cy.intercept('POST', Cypress.env('graphql'), (req) => {
       if (req.body.operationName === 'UserSites'){
         req.alias = "UserSites"
       }
