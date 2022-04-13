@@ -20,7 +20,7 @@ class NewSubscriber {
         let modifiedData = `${value.split(".")[0]}-${this.iterable}`
         return {type, value: [modifiedData, value.split(".")[1]].join(".")}
       }
-      return { type, value }
+      return { type, value: `${value}-${this.iterable}` }
     })
     
     return newData
@@ -166,12 +166,12 @@ class NewSubscriber {
   }
 
   verifySubscriberAlreadyExists = () => {
-    interceptGqlRequest({ alias: 'createSubscriber' })
+    interceptGqlRequest({ alias: 'createDuplicateSubscriber', opName: 'createSubscriber' })
     this.openCreateNewSubscriberModal()
     cy.get('[data-attribute=input-subscriber-upsert-email]').type("admin@mailmunch.com")
     cy.get("[data-attribute=button-subscriber-upsert-save]").click()
 
-    cy.wait('@createSubscriber')
+    cy.wait('@createDuplicateSubscriber')
     .its("response.body.data.createSubscriber.success").should("eq", false)
   }
 }
