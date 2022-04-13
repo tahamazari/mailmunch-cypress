@@ -40,7 +40,7 @@ export const generateRandomNumber = ({ ceiling }) => {
   return (Math.floor((Math.random() * ceiling)))
 }
 
-export const interceptGqlRequest = ({ alias, method = "POST", url = "http://localhost:4000/", opName = null }) => {
+export const interceptGqlRequest = ({ alias, method = "POST", url = Cypress.env('graphqlUrl'), opName = null }) => {
   const operationName = opName ? opName : alias
   cy.intercept(method, url, (req) => {
     if (req.body.operationName === operationName){

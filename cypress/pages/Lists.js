@@ -2,7 +2,7 @@ import { generateRandomName, generateRandomNumber, interceptGqlRequest } from ".
 
 class ListsPage {
   constructor(){
-    cy.intercept('POST', 'http://localhost:4000/', (req) => {
+    cy.intercept('POST', Cypress.env('graphqlUrl'), (req) => {
       if (req.body.operationName === 'UserSites'){
         req.alias = "UserSites"
       }
