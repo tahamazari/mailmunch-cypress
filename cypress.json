@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://dashboard.staging.mailmunch.com/",
   "chromeWebSecurity": false,
-  "experimentalSessionSupport": true
+  "experimentalSessionSupport": true,
+  "projectId": "i5jkm8"
 }
