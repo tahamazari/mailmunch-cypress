@@ -15,4 +15,4 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: npx cypress run --record e4011f78-d8f0-4411-8c68-acab79aa9998 --spec "cypress/Subscribers/newContact.js"
+      - run: npx cypress run --record e4011f78-d8f0-4411-8c68-acab79aa9998 --spec "cypress/integration/Subscribers/newContact.js"
